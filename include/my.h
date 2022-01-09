@@ -16,6 +16,7 @@
         windowfourth_t windowfourth;
         windowfifth_t windowfifth;
         guy_t guy;
+        cube_t cube;
     }loadwindowall_t;
 
     void clock(sfClock *timer, sfSprite *guy, sfIntRect *rect);

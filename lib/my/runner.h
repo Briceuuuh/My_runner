@@ -17,7 +17,7 @@
 
     int my_putstr(char const *str);
 
-    void display(loadwindowall_t *loadwindowall);
+    void display(loadwindowall_t *loadwindowall, char **map);
 
     void analyze_event(loadwindowall_t *loadwindowall);
 
@@ -25,8 +25,21 @@
 
     guy_t load_guy(void);
 
+    cube_t load_cube(void);
+
     void clock(sfClock *timer, sfSprite *guy, sfIntRect *rect);
 
     void jump(loadwindowall_t *loadwindowall);
+
+    int my_strlen(char const *str);
+
+    char *my_strdup(char const *src);
+
+    void levelmap(char **level, loadwindowall_t *all);
+
+    char **readmap(char const *filepath);
+
+    void touch(loadwindowall_t *all);
+
 
 #endif

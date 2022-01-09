@@ -1,0 +1,9 @@
+{
+    "files.associations": {
+        "runner.h": "c",
+        "struct.h": "c",
+        "my.h": "c",
+        "__locale": "c",
+        "ctime": "c"
+    }
+}

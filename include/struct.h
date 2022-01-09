@@ -22,9 +22,10 @@
     #define BACKTHIRD "pics/layers/backthird.png"
     #define BACKFOURTH "pics/layers/backfourth.png"
     #define BACKFIFTH "pics/layers/backfifth.png"
-    #define BODY "pics/lilpump copie.png"
+    #define BODY "pics/lilpump.png"
     #define MUSIC "pics/musicback.ogg"
     #define JUMP "pics/jump.wav"
+    #define CUBE "pics/layers/cube.png"
 
 typedef struct window {
     sfRenderWindow *window;
@@ -88,6 +89,17 @@ typedef struct guy {
     float velocity;
     sfSound *jump;
     sfSoundBuffer *jumpbuffer;
+    sfFloatRect bound_guy;
+
 }guy_t;
+
+typedef struct cube {
+    sfTexture *cube;
+    sfVector2f sizecube;
+    sfVector2f positioncube;
+    sfSprite *spritecube;
+    sfFloatRect bound_cube;
+
+}cube_t;
 
 #endif /* !STRUCT_H_ */

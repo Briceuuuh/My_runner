@@ -17,6 +17,7 @@ loadwindowall_t *load_all(void)
     loadwindowall->windowfourth = load_windowfourth();
     loadwindowall->windowfifth = load_windowfifth();
     loadwindowall->guy = load_guy();
+    loadwindowall->cube = load_cube();
     return (loadwindowall);
 }
 
@@ -61,24 +62,25 @@ void moveback(loadwindowall_t *all)
     leftback(all);
 }
 
-void display(loadwindowall_t *loadwindowall)
+void display(loadwindowall_t *loadwindowall, char **map)
 {
     sfRenderWindow_clear(loadwindowall->window.window, sfBlack);
     moveback(loadwindowall);
     clock(loadwindowall->guy.timer, loadwindowall->guy.spriteguy
-    ,&loadwindowall->guy.rect);
+    , &loadwindowall->guy.rect);
     sfRenderWindow_drawSprite(loadwindowall->window.window
-    ,loadwindowall->window.spriteback, NULL);
+    , loadwindowall->window.spriteback, NULL);
     sfRenderWindow_drawSprite(loadwindowall->window.window
-    ,loadwindowall->windowsec.spritesec, NULL);
+    , loadwindowall->windowsec.spritesec, NULL);
     sfRenderWindow_drawSprite(loadwindowall->window.window
-    ,loadwindowall->windowthird.spritethird, NULL);
+    , loadwindowall->windowthird.spritethird, NULL);
     sfRenderWindow_drawSprite(loadwindowall->window.window
-    ,loadwindowall->windowfourth.spritefourth, NULL);
+    , loadwindowall->windowfourth.spritefourth, NULL);
     sfRenderWindow_drawSprite(loadwindowall->window.window
-    ,loadwindowall->guy.spriteguy, NULL);
+    , loadwindowall->guy.spriteguy, NULL);
+    levelmap(map, loadwindowall);
     sfRenderWindow_drawSprite(loadwindowall->window.window
-    ,loadwindowall->windowfifth.spritefifth, NULL);
+    , loadwindowall->windowfifth.spritefifth, NULL);
     sfRenderWindow_display(loadwindowall->window.window);
 }
 
