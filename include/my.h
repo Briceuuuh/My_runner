@@ -17,8 +17,13 @@
         windowfifth_t windowfifth;
         guy_t guy;
         cube_t cube;
+        spiked_t spiked;
+        lose_t lose;
     }loadwindowall_t;
 
     void clock(sfClock *timer, sfSprite *guy, sfIntRect *rect);
+
+    void clockenemy(sfClock *timer, sfSprite *enemy, sfIntRect *rect);
+
 
 #endif

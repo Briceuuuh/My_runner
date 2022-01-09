@@ -23,10 +23,13 @@ void my_runner(char *str)
 
 int main(int ac, char **av)
 {
-    if (ac == 2)
+    if (ac == 2 && av[1][0] == '-' && av[1][1] == 'h') {
+        write(2, "Jeu qui consiste à sauter et esquiver les obstacles\n", 79);
+    }
+    else if (ac == 2)
         my_runner(av[1]);
     else {
-        my_putstr("Choose file");
+        write(2, "Choose file\n", 13);
         return 84;
     }
     return 0;

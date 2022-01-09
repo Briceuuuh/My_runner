@@ -25,19 +25,25 @@ void clock(sfClock *timer, sfSprite *guy, sfIntRect *rect)
     }
 }
 
-void jump(loadwindowall_t *all)
+void resize_jump(loadwindowall_t *all, const int ground_pos[])
 {
-    const float gravity = 0.8f;
-    const int ground_pos[] = { 710, 468, 212, -1 };
-
-    if (sfKeyboard_isKeyPressed(sfKeySpace)) {
-        for (int i = 0; ground_pos[i] != -1; i++) {
-            if (all->guy.positionguy.y == ground_pos[i]) {
-                sfSound_play(all->guy.jump);
-                all->guy.velocity = -20.0f;
-            }
+    for (int i = 0; ground_pos[i] != -1; i++) {
+        if (all->guy.positionguy.y == ground_pos[i]) {
+            sfSound_play(all->guy.jump);
+            all->guy.velocity = -20.0f;
         }
     }
+}
+
+void jump(loadwindowall_t *all)
+{
+    const float gravity = 0.7f;
+    const int ground_pos[] = {710, 468, 212, -1};
+
+    if (sfKeyboard_isKeyPressed(sfKeySpace)) {
+        resize_jump(all, ground_pos);
+    }
+
     all->guy.positionguy.y += all->guy.velocity;
     if (all->guy.positionguy.y >= 710) {
         all->guy.velocity = 0;

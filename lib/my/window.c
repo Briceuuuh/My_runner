@@ -18,6 +18,8 @@ loadwindowall_t *load_all(void)
     loadwindowall->windowfifth = load_windowfifth();
     loadwindowall->guy = load_guy();
     loadwindowall->cube = load_cube();
+    loadwindowall->spiked = load_spiked();
+    loadwindowall->lose = load_lose();
     return (loadwindowall);
 }
 
@@ -81,6 +83,8 @@ void display(loadwindowall_t *loadwindowall, char **map)
     levelmap(map, loadwindowall);
     sfRenderWindow_drawSprite(loadwindowall->window.window
     , loadwindowall->windowfifth.spritefifth, NULL);
+    sfRenderWindow_drawSprite(loadwindowall->window.window
+    , loadwindowall->lose.spritelose, NULL);
     sfRenderWindow_display(loadwindowall->window.window);
 }
 

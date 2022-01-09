@@ -40,15 +40,14 @@ void levelmap(char **level, loadwindowall_t *all)
     int longueur = 0;
 
     all->cube.positioncube.x -= 14;
+    all->spiked.positionspiked.x -= 14;
     while (line != 5) {
         while (ch != my_strlen(level[line])) {
             str[ch] = level[line][ch];
-            if (str[ch] == 'C') {
-                int x = longueur + all->cube.positioncube.x;
-                sfSprite_setPosition(all->cube.spritecube, (sfVector2f) {x, hauteur});
-                sfRenderWindow_drawSprite(all->window.window, all->cube.spritecube, NULL);
-                touch(all);
-            }
+            if (str[ch] == 'C')
+                put_cube(all, hauteur, longueur);
+            if (str[ch] == 'E')
+                put_enemy(all, hauteur, longueur);
             ch = ch + 1;
             longueur = longueur + 256;
         }
@@ -66,10 +65,10 @@ char **readmap(char const *filepath)
     ssize_t size = 0;
     int endmap = 0;
     char *c = NULL;
-
     FILE *fd = fopen(filepath, "r");
+
     if (fd == NULL)
-        my_putstr("file no exist");
+        write(2, "file no exist\n", 15);
     while ((size = getline(&c, &line, fd)) != -1) {
         if (c[size] == '\n')
             c[size] = '\0';

@@ -7,11 +7,11 @@
 
 SRC = load_window.c \
 	window.c \
-	my_putstr.c \
 	load_guy.c \
 	load_cube.c \
 	full_func.c \
-	my_colision.c
+	my_colision.c \
+	put_cube.c
 
 OBJ = $(SRC:.c=.o)
 

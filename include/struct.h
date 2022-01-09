@@ -26,80 +26,101 @@
     #define MUSIC "pics/musicback.ogg"
     #define JUMP "pics/jump.wav"
     #define CUBE "pics/layers/cube.png"
+    #define SPIKED "pics/layers/enemy.png"
+    #define LOSE "pics/lose.png"
+    #define OUH "pics/die.wav"
 
-typedef struct window {
-    sfRenderWindow *window;
-    sfVideoMode mode;
-    sfEvent event;
-    sfTexture *background;
-    sfVector2f sizeback;
-    sfSprite *spriteback;
-    sfMusic *backmusic;
-}window_t;
+    typedef struct window {
+        sfRenderWindow *window;
+        sfVideoMode mode;
+        sfEvent event;
+        sfTexture *background;
+        sfVector2f sizeback;
+        sfSprite *spriteback;
+        sfMusic *backmusic;
+    }window_t;
 
-window_t load_window(void);
+    window_t load_window(void);
 
-typedef struct windowsecond {
-    sfRenderWindow *windowsec;
-    sfTexture *backsec;
-    sfVector2f sizesec;
-    sfSprite *spritesec;
-    sfVector2f backpossec;
-}windowsec_t;
+    typedef struct windowsecond {
+        sfRenderWindow *windowsec;
+        sfTexture *backsec;
+        sfVector2f sizesec;
+        sfSprite *spritesec;
+        sfVector2f backpossec;
+    }windowsec_t;
 
-windowsec_t load_windowsec(void);
+    windowsec_t load_windowsec(void);
 
-typedef struct windowthird {
-    sfRenderWindow *windowthird;
-    sfTexture *backthird;
-    sfVector2f sizethird;
-    sfSprite *spritethird;
-    sfVector2f backposthird;
-}windowthird_t;
+    typedef struct windowthird {
+        sfRenderWindow *windowthird;
+        sfTexture *backthird;
+        sfVector2f sizethird;
+        sfSprite *spritethird;
+        sfVector2f backposthird;
+    }windowthird_t;
 
-windowthird_t load_windowthird(void);
+    windowthird_t load_windowthird(void);
 
-typedef struct windowfourth {
-    sfRenderWindow *windowfourth;
-    sfTexture *backfourth;
-    sfVector2f sizefourth;
-    sfSprite *spritefourth;
-    sfVector2f backposfourth;
-}windowfourth_t;
+    typedef struct windowfourth {
+        sfRenderWindow *windowfourth;
+        sfTexture *backfourth;
+        sfVector2f sizefourth;
+        sfSprite *spritefourth;
+        sfVector2f backposfourth;
+    }windowfourth_t;
 
-windowfourth_t load_windowfourth(void);
+    windowfourth_t load_windowfourth(void);
 
-typedef struct windowfifth {
-    sfRenderWindow *windowfifth;
-    sfTexture *backfifth;
-    sfVector2f sizefifth;
-    sfSprite *spritefifth;
-    sfVector2f backposfifth;
-}windowfifth_t;
+    typedef struct windowfifth {
+        sfRenderWindow *windowfifth;
+        sfTexture *backfifth;
+        sfVector2f sizefifth;
+        sfSprite *spritefifth;
+        sfVector2f backposfifth;
+    }windowfifth_t;
 
-windowfifth_t load_windowfifth(void);
+    windowfifth_t load_windowfifth(void);
 
-typedef struct guy {
-    sfTexture *guy;
-    sfVector2f sizeguy;
-    sfVector2f positionguy;
-    sfSprite *spriteguy;
-    sfIntRect rect;
-    sfClock *timer;
-    float velocity;
-    sfSound *jump;
-    sfSoundBuffer *jumpbuffer;
-    sfFloatRect bound_guy;
+    typedef struct guy {
+        sfTexture *guy;
+        sfVector2f sizeguy;
+        sfVector2f positionguy;
+        sfSprite *spriteguy;
+        sfIntRect rect;
+        sfClock *timer;
+        float velocity;
+        sfSound *jump;
+        sfSoundBuffer *jumpbuffer;
+        sfFloatRect bound_guy;
+    }guy_t;
 
-}guy_t;
+    typedef struct cube {
+        sfTexture *cube;
+        sfVector2f sizecube;
+        sfVector2f positioncube;
+        sfSprite *spritecube;
+        sfFloatRect bound_cube;
+    }cube_t;
 
-typedef struct cube {
-    sfTexture *cube;
-    sfVector2f sizecube;
-    sfVector2f positioncube;
-    sfSprite *spritecube;
-    sfFloatRect bound_cube;
+    typedef struct spiked {
+        sfTexture *spiked;
+        sfVector2f sizespiked;
+        sfVector2f positionspiked;
+        sfIntRect rect;
+        sfClock *timer;
+        sfSprite *spritespiked;
+        sfFloatRect bound_spiked;
+    }spiked_t;
 
-}cube_t;
+    typedef struct lose {
+        sfRenderWindow *lose;
+        sfTexture *backlose;
+        sfVector2f sizelose;
+        sfSprite *spritelose;
+        sfVector2f poslose;
+        sfSound *die;
+        sfSoundBuffer *diebuffer;
+    }lose_t;
 
 #endif /* !STRUCT_H_ */

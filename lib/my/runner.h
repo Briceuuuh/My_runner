@@ -15,8 +15,6 @@
     #include "struct.h"
     #include "my.h"
 
-    int my_putstr(char const *str);
-
     void display(loadwindowall_t *loadwindowall, char **map);
 
     void analyze_event(loadwindowall_t *loadwindowall);
@@ -27,7 +25,13 @@
 
     cube_t load_cube(void);
 
+    spiked_t load_spiked(void);
+
+    lose_t load_lose(void);
+
     void clock(sfClock *timer, sfSprite *guy, sfIntRect *rect);
+
+    void clockenemy(sfClock *timer, sfSprite *enemy, sfIntRect *rect);
 
     void jump(loadwindowall_t *loadwindowall);
 
@@ -39,7 +43,12 @@
 
     char **readmap(char const *filepath);
 
-    void touch(loadwindowall_t *all);
+    void touchcube(loadwindowall_t *all);
 
+    void touchenemy(loadwindowall_t *all);
+
+    void put_cube(loadwindowall_t *all, int hauteur, int longueur);
+
+    void put_enemy(loadwindowall_t *all, int hauteur, int longueur);
 
 #endif
