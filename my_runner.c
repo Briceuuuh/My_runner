@@ -24,7 +24,7 @@ void my_runner(char *str)
 int main(int ac, char **av)
 {
     if (ac == 2 && av[1][0] == '-' && av[1][1] == 'h') {
-        write(2, "Jeu qui consiste à sauter et esquiver les obstacles\n", 53);
+        write(2, "Game that consists of jumping and dodging obstacles\n", 53);
     }
     else if (ac == 2)
         my_runner(av[1]);

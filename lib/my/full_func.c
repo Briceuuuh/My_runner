@@ -33,28 +33,25 @@ char *my_strdup(char const *src)
 
 void levelmap(char **level, loadwindowall_t *all)
 {
-    int line = 0;
     int ch = 0;
+    int line = 0;
     char str[my_strlen((level[line]))];
     int hauteur = 0;
     int longueur = 0;
 
     all->cube.positioncube.x -= 14;
     all->spiked.positionspiked.x -= 14;
-    while (line != 5) {
+    for (; line != 5; line++) {
         while (ch != my_strlen(level[line])) {
             str[ch] = level[line][ch];
-            if (str[ch] == 'C')
-                put_cube(all, hauteur, longueur);
-            if (str[ch] == 'E')
-                put_enemy(all, hauteur, longueur);
+            (str[ch] == 'C') ? put_cube(all, hauteur, longueur) : 0;
+            (str[ch] == 'E') ? put_enemy(all, hauteur, longueur) : 0;
             ch = ch + 1;
             longueur = longueur + 256;
         }
         longueur = 0;
         hauteur = hauteur + 256;
         ch = 0;
-        line = line + 1;
     }
 }
 

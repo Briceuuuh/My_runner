@@ -108,6 +108,7 @@
         sfVector2f sizespiked;
         sfVector2f positionspiked;
         sfIntRect rect;
+        float velocity;
         sfClock *timer;
         sfSprite *spritespiked;
         sfFloatRect bound_spiked;

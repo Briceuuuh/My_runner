@@ -58,9 +58,9 @@ spiked_t load_spiked(void)
     spiked.positionspiked = (sfVector2f) {50, 775};
     spiked.rect = (sfIntRect) {0, 0, 256, 128};
     spiked.spritespiked = sfSprite_create();
+    spiked.timer = sfClock_create();
     sfSprite_setPosition(spiked.spritespiked, spiked.positionspiked);
     sfSprite_setScale(spiked.spritespiked, spiked.sizespiked);
     sfSprite_setTexture(spiked.spritespiked, spiked.spiked, sfTrue);
-    clockenemy(spiked.timer, spiked.spritespiked, &spiked.rect);
     return (spiked);
 }
